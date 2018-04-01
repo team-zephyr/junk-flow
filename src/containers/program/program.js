@@ -10,8 +10,6 @@ export interface ProgramProps {
   openProgram: Function;
 }
 
-type State = {};
-
 function asProgram(config: Ducks.Config) {
   return function injectProp<Props: {}>(
     Component: React.ComponentType<Props>
