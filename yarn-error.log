@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/dennyscott/.nvm/versions/node/v9.9.0/bin/node /Users/dennyscott/.yarn/bin/yarn.js install redux react-redux
+  /Users/dennyscott/.nvm/versions/node/v9.9.0/bin/node /Users/dennyscott/.yarn/bin/yarn.js flow
 
 PATH: 
   /Users/dennyscott/.yarn/bin:/Users/dennyscott/.config/yarn/global/node_modules/.bin:/Users/dennyscott/.nvm/versions/node/v9.9.0/bin:/Users/dennyscott/.cargo/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/share/dotnet:/opt/X11/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/dennyscott/go/bin:/usr/local/opt/go/libexec/bin
@@ -19,15 +19,20 @@ npm manifest:
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+      "flow-bin": "^0.69.0",
       "react": "^16.3.0",
       "react-dom": "^16.3.0",
-      "react-scripts": "2.0.0-next.b2fd8db8"
+      "react-redux": "^5.0.7",
+      "react-scripts": "2.0.0-next.b2fd8db8",
+      "redux": "^3.7.2",
+      "redux-thunk": "^2.2.0"
     },
     "scripts": {
       "start": "react-scripts start",
       "build": "react-scripts build",
       "test": "react-scripts test --env=jsdom",
-      "eject": "react-scripts eject"
+      "eject": "react-scripts eject",
+      "flow": "flow"
     },
     "browserslist": {
       "development": [
@@ -35,12 +40,7 @@ npm manifest:
         "last 2 firefox versions",
         "last 2 edge versions"
       ],
-      "production": [
-        ">1%",
-        "last 4 versions",
-        "Firefox ESR",
-        "not ie < 11"
-      ]
+      "production": [">1%", "last 4 versions", "Firefox ESR", "not ie < 11"]
     }
   }
 
@@ -3212,6 +3212,10 @@ Lockfile:
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
   
+  flow-bin@^0.69.0:
+    version "0.69.0"
+    resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.69.0.tgz#053159a684a6051fcbf0b71a2eb19a9679082da6"
+  
   flush-write-stream@^1.0.0:
     version "1.0.3"
     resolved "https://registry.yarnpkg.com/flush-write-stream/-/flush-write-stream-1.0.3.tgz#c5d586ef38af6097650b49bc41b55fabb19f35bd"
@@ -3697,6 +3701,10 @@ Lockfile:
     version "4.2.1"
     resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
   
+  hoist-non-react-statics@^2.5.0:
+    version "2.5.0"
+    resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.0.tgz#d2ca2dfc19c5a91c5a6615ce8e564ef0347e2a40"
+  
   home-or-tmp@^2.0.0:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/home-or-tmp/-/home-or-tmp-2.0.0.tgz#e36c3f2d2cae7d746a857e38d18d5f32a7882db8"
@@ -3958,7 +3966,7 @@ Lockfile:
     version "1.1.0"
     resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.1.0.tgz#7ed1b1410c6a0e0f78cf95d3b8440c63f78b8614"
   
-  invariant@^2.2.0, invariant@^2.2.2:
+  invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.2:
     version "2.2.4"
     resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
     dependencies:
@@ -4902,6 +4910,10 @@ Lockfile:
       p-locate "^2.0.0"
       path-exists "^3.0.0"
   
+  lodash-es@^4.17.5, lodash-es@^4.2.1:
+    version "4.17.8"
+    resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.8.tgz#6fa8c8c5d337481df0bdf1c0d899d42473121e45"
+  
   lodash._reinterpolate@~3.0.0:
     version "3.0.0"
     resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
@@ -4943,7 +4955,7 @@ Lockfile:
     version "4.5.0"
     resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   
-  "lodash@>=3.5 <5", lodash@^4.13.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0:
+  "lodash@>=3.5 <5", lodash@^4.13.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0:
     version "4.17.5"
     resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
   
@@ -6344,7 +6356,7 @@ Lockfile:
       strip-ansi "4.0.0"
       text-table "0.2.0"
   
-  react-dom@16.3.0:
+  react-dom@^16.3.0:
     version "16.3.0"
     resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.0.tgz#b318e52184188ecb5c3e81117420cca40618643e"
     dependencies:
@@ -6356,6 +6368,17 @@ Lockfile:
   react-error-overlay@5.0.0-next.b2fd8db8:
     version "5.0.0-next.b2fd8db8"
     resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.0.0-next.b2fd8db8.tgz#e411264d5e16ffc1b5b27149451be99ed24b43f1"
+  
+  react-redux@^5.0.7:
+    version "5.0.7"
+    resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"
+    dependencies:
+      hoist-non-react-statics "^2.5.0"
+      invariant "^2.0.0"
+      lodash "^4.17.5"
+      lodash-es "^4.17.5"
+      loose-envify "^1.1.0"
+      prop-types "^15.6.0"
   
   react-scripts@2.0.0-next.b2fd8db8:
     version "2.0.0-next.b2fd8db8"
@@ -6409,7 +6432,7 @@ Lockfile:
     optionalDependencies:
       fsevents "1.1.3"
   
-  react@16.3.0:
+  react@^16.3.0:
     version "16.3.0"
     resolved "https://registry.yarnpkg.com/react/-/react-16.3.0.tgz#fc5a01c68f91e9b38e92cf83f7b795ebdca8ddff"
     dependencies:
@@ -6516,6 +6539,19 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/reduce-function-call/-/reduce-function-call-1.0.2.tgz#5a200bf92e0e37751752fe45b0ab330fd4b6be99"
     dependencies:
       balanced-match "^0.4.2"
+  
+  redux-thunk@^2.2.0:
+    version "2.2.0"
+    resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
+  
+  redux@^3.7.2:
+    version "3.7.2"
+    resolved "https://registry.yarnpkg.com/redux/-/redux-3.7.2.tgz#06b73123215901d25d065be342eb026bc1c8537b"
+    dependencies:
+      lodash "^4.2.1"
+      lodash-es "^4.2.1"
+      loose-envify "^1.1.0"
+      symbol-observable "^1.0.3"
   
   regenerate-unicode-properties@^5.1.1:
     version "5.1.3"
@@ -7447,6 +7483,10 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.1.tgz#8340fc4702c3122df5d22288f88283f513d3fdd4"
   
+  symbol-observable@^1.0.3:
+    version "1.2.0"
+    resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
+  
   symbol-tree@^3.2.1, symbol-tree@^3.2.2:
     version "3.2.2"
     resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.2.tgz#ae27db38f660a7ae2e1c3b7d1bc290819b8519e6"
@@ -8284,10 +8324,16 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: `install` has been replaced with `add` to add new dependencies. Run "yarn add redux react-redux" instead.
-      at new MessageError (/Users/dennyscott/.yarn/lib/cli.js:186:110)
-      at Object.<anonymous> (/Users/dennyscott/.yarn/lib/cli.js:21987:13)
-      at Generator.next (<anonymous>)
-      at step (/Users/dennyscott/.yarn/lib/cli.js:98:30)
-      at /Users/dennyscott/.yarn/lib/cli.js:109:13
-      at <anonymous>
+  Error: Command failed.
+  Exit code: 7
+  Command: sh
+  Arguments: -c flow
+  Directory: /Users/dennyscott/Development/junk
+  Output:
+  
+      at ProcessTermError.MessageError (/Users/dennyscott/.yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/Users/dennyscott/.yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/Users/dennyscott/.yarn/lib/cli.js:30281:17)
+      at ChildProcess.emit (events.js:180:13)
+      at maybeClose (internal/child_process.js:936:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:220:5)

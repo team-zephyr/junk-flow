@@ -12,7 +12,28 @@ export const initialState = {
   isLoaded: false
 };
 
-export function reducer(state: {openPrograms: [], isLoaded: boolean} = initialState, action: {type: string, windowId: string, programId: number}) {
+interface Program {
+  windowId: string;
+  programId: number;
+}
+
+interface ProgramsState {
+  openPrograms: Array<Program>;
+  isLoaded: boolean;
+}
+
+interface actionPayload extends Program {
+  type: string;
+}
+
+interface Config {
+  allowMultipleInstances: boolean;
+}
+
+export function reducer(
+  state: ProgramsState = initialState,
+  action: actionPayload
+) {
   switch (action.type) {
     case OPEN_PROGRAM: {
       const { windowId, programId } = action;
@@ -71,8 +92,12 @@ export function showProgram(windowId: string) {
   };
 }
 
-export function openProgram(programId: number, windowId: string, config: {allowMultipleInstances: boolean}) {
-  return (dispatch: function, getState: function) => {
+export function openProgram(
+  programId: number,
+  windowId: string,
+  config: Config
+) {
+  return (dispatch: Function, getState: Function) => {
     if (!config.allowMultipleInstances) {
       const foundProgram = getState().program.openProgram.find(
         program => program.programId === programId
