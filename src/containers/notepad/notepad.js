@@ -8,7 +8,7 @@ class Notepad extends Component<ProgramProps> {
     this.props.openProgram(1, "", { allowMultipleInstances: false });
   }
   render() {
-    return <div>Hello World</div>;
+    return <div>Im the Notepad</div>;
   }
 }
 
