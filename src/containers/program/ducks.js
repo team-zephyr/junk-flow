@@ -26,7 +26,7 @@ interface actionPayload extends Program {
   type: string;
 }
 
-interface Config {
+export interface Config {
   allowMultipleInstances: boolean;
 }
 
@@ -99,7 +99,7 @@ export function openProgram(
 ) {
   return (dispatch: Function, getState: Function) => {
     if (!config.allowMultipleInstances) {
-      const foundProgram = getState().program.openProgram.find(
+      const foundProgram = getState().program.openPrograms.find(
         program => program.programId === programId
       );
 

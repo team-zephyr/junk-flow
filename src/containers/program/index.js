@@ -1,2 +1,2 @@
 export { reducer, initialState } from "./ducks";
-export { default } from "./program";
+export { default, ProgramProps } from "./program";

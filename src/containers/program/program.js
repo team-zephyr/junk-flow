@@ -1,13 +1,24 @@
-import React, { Component } from "react";
+// @flow
+import * as React from "react";
 import { connect } from "react-redux";
 import uuid from "uuid";
 import * as Ducks from "./ducks";
 
-function asProgram(config) {
-  return WrappedComponent => {
-    class Program extends Component {
+export interface ProgramProps {
+  closeProgramByProgramId: Function;
+  closeProgramByWindowId: Function;
+  openProgram: Function;
+}
+
+type State = {};
+
+function asProgram(config: Ducks.Config) {
+  return function injectProp<Props: {}>(
+    Component: React.ComponentType<Props>
+  ): React.ComponentType<Props & ProgramProps> {
+    class WrapperComponent extends React.Component<Props> {
       render() {
-        return <WrappedComponent {...this.props} />;
+        return <Component {...this.props} />;
       }
     }
 
@@ -15,11 +26,10 @@ function asProgram(config) {
       closeProgramByWindowId: id => dispatch(Ducks.closeProgramByWindowId(id)),
       closeProgramByProgramId: id =>
         dispatch(Ducks.closeProgramsByProgramId(id)),
-      openProgram: id =>
-        dispatch(Ducks.openProgram(id, uuid(), config.allowMultipleInstances))
+      openProgram: id => dispatch(Ducks.openProgram(id, uuid(), config))
     });
 
-    return connect(null, mapDispatchToProps)(Program);
+    return connect(null, mapDispatchToProps)(WrapperComponent);
   };
 }
 
