@@ -1,15 +1,15 @@
 // @flow
-export const OPEN_PROGRAM = "junk/program/OPEN_PROGRAM";
-export const CLOSE_PROGRAM = "junk/program/CLOSE_PROGRAM";
-export const SHOW_PROGRAM = "junk/program/SHOW_PROGRAM";
+export const OPEN_PROGRAM = 'junk/program/OPEN_PROGRAM';
+export const CLOSE_PROGRAM = 'junk/program/CLOSE_PROGRAM';
+export const SHOW_PROGRAM = 'junk/program/SHOW_PROGRAM';
 export const CLOSE_PROGRAM_BY_WINDOW_ID =
-  "junk/program/CLOSE_PROGRAM_BY_WINDOW_ID";
+  'junk/program/CLOSE_PROGRAM_BY_WINDOW_ID';
 export const CLOSE_PROGRAMS_BY_PROGRAM_ID =
-  "junk/program/CLOSE_PROGRAMS_BY_PROGRAM_ID";
+  'junk/program/CLOSE_PROGRAMS_BY_PROGRAM_ID';
 
 export const initialState = {
   openPrograms: [],
-  isLoaded: false
+  isLoaded: false,
 };
 
 interface Program {
@@ -32,30 +32,30 @@ export interface Config {
 
 export function reducer(
   state: ProgramsState = initialState,
-  action: actionPayload
+  action: actionPayload,
 ) {
   switch (action.type) {
     case OPEN_PROGRAM: {
       const { windowId, programId } = action;
       return {
         ...state,
-        openPrograms: [...state.openPrograms, { windowId, programId }]
+        openPrograms: [...state.openPrograms, { windowId, programId }],
       };
     }
     case CLOSE_PROGRAMS_BY_PROGRAM_ID: {
       return {
         ...state,
         openPrograms: state.openPrograms.filter(
-          program => program.programId !== action.programId
-        )
+          program => program.programId !== action.programId,
+        ),
       };
     }
     case CLOSE_PROGRAM_BY_WINDOW_ID: {
       return {
         ...state,
         openPrograms: state.openPrograms.filter(
-          program => program.windowId !== action.windowId
-        )
+          program => program.windowId !== action.windowId,
+        ),
       };
     }
     default:
@@ -66,14 +66,14 @@ export function reducer(
 export function closeProgramByWindowId(windowId: string) {
   return {
     type: CLOSE_PROGRAM_BY_WINDOW_ID,
-    windowId
+    windowId,
   };
 }
 
 export function closeProgramsByProgramId(programId: number) {
   return {
     type: CLOSE_PROGRAMS_BY_PROGRAM_ID,
-    programId
+    programId,
   };
 }
 
@@ -81,26 +81,26 @@ export function programOpened(windowId: string, programId: number) {
   return {
     type: OPEN_PROGRAM,
     programId,
-    windowId
+    windowId,
   };
 }
 
 export function showProgram(windowId: string) {
   return {
     type: SHOW_PROGRAM,
-    windowId
+    windowId,
   };
 }
 
 export function openProgram(
   programId: number,
   windowId: string,
-  config: Config
+  config: Config,
 ) {
   return (dispatch: Function, getState: Function) => {
     if (!config.allowMultipleInstances) {
       const foundProgram = getState().program.openPrograms.find(
-        program => program.programId === programId
+        program => program.programId === programId,
       );
 
       if (foundProgram) {

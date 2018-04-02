@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AsProgram HOC renders to snapshot correctly 1`] = `
+<WrapperComponent
+  closeProgramByProgramId={[Function]}
+  closeProgramByWindowId={[Function]}
+  openProgram={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+/>
+`;

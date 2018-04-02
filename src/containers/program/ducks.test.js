@@ -162,7 +162,10 @@ describe('Program reducer ', () => {
 
   it('should handle OPEN_PROGRAM', () => {
     expect(
-      Ducks.reducer(undefined, { ...program, type: Ducks.OPEN_PROGRAM }),
+      Ducks.reducer(Ducks.initialState, {
+        ...program,
+        type: Ducks.OPEN_PROGRAM,
+      }),
     ).toEqual({
       ...Ducks.initialState,
       openPrograms: [{ ...program }],
