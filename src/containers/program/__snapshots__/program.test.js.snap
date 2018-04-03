@@ -2,8 +2,8 @@
 
 exports[`AsProgram HOC renders to snapshot correctly 1`] = `
 <WrapperComponent
-  closeProgramByProgramId={[Function]}
   closeProgramByWindowId={[Function]}
+  closeProgramsByProgramId={[Function]}
   openProgram={[Function]}
   store={
     Object {

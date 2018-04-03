@@ -29,7 +29,10 @@ it('AsProgram HOC renders correctly', () => {
   rendersCorrect(getMinComponent());
 });
 
-it('IsAdmin passed props successfully through', () => {
+it('AsProgram passed props successfully through', () => {
   const wrapper = shallow(<DecoratedComponent store={store} />);
   console.log(wrapper.props());
+  expect(wrapper.props().closeProgramByWindowId).toBeDefined();
+  expect(wrapper.props().closeProgramsByProgramId).toBeDefined();
+  expect(wrapper.props().openProgram).toBeDefined();
 });

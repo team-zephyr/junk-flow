@@ -22,7 +22,7 @@ function asProgram(config: Ducks.Config) {
 
     const mapDispatchToProps = dispatch => ({
       closeProgramByWindowId: id => dispatch(Ducks.closeProgramByWindowId(id)),
-      closeProgramByProgramId: id =>
+      closeProgramsByProgramId: id =>
         dispatch(Ducks.closeProgramsByProgramId(id)),
       openProgram: id => dispatch(Ducks.openProgram(id, uuid(), config)),
     });
