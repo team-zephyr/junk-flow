@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Desktop matches snapshot correctly 1`] = `
+<div>
+  Im the Desktop
+</div>
+`;
+
+exports[`DesktopContainer matches snapshot 1`] = `
+<WrapperComponent
+  activePrograms={Array []}
+  closeProgramByProgramId={[Function]}
+  closeProgramByWindowId={[Function]}
+  contents={Object {}}
+  openProgram={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+/>
+`;
